@@ -79,3 +79,30 @@ function  sendmail(){
     });
 }
 }
+let mybutton = document.getElementById("myBtn");
+
+    // Counter to keep track of scrolls
+    let scrollCounter = 0;
+
+    // When the user scrolls down, increment the scrollCounter
+    window.onscroll = function () {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            // Show the button after two scrolls
+            if (scrollCounter >= 2) {
+                mybutton.style.display = "block";
+            }
+            scrollCounter++;
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+    }
